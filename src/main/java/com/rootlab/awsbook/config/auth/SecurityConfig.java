@@ -25,12 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 					.anyRequest().authenticated()
 				.and()
 					.logout()
-						.logoutSuccessUrl("/")
-						.invalidateHttpSession(true).deleteCookies("SESSION")
+					.logoutSuccessUrl("/")
 				.and()
 					.oauth2Login()
-						.userInfoEndpoint()
-							.userService(customOAuth2UserService);
+					.userInfoEndpoint()
+					.userService(customOAuth2UserService);
 
 		//Spring Security Integration with spring-session-jdbc
 		http.rememberMe((rememberMe) -> rememberMe
