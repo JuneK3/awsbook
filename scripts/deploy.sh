@@ -1,6 +1,6 @@
 #!/bin/bash
 
-REPOSITORY=/home/ec2-user/app/step2
+REPOSITORY=/home/ssm-user/app/step2
 PROJECT_NAME=awsbook
 
 echo "> Build 파일 복사"
