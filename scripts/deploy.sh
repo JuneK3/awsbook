@@ -9,7 +9,11 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> 현재 구동중인 애플리케이션 pid 확인"
 
-CURRENT_PID=$(pgrep -fl awsbook | grep jar | awk '{print $1}')
+#CURRENT_PID=$(pgrep -fl awsbook | grep jar | awk '{print $1}')
+#https://github.com/jojoldu/freelec-springboot2-webservice/issues/631 참고
+#/profile 접속 시 HTTP status 500 및 OAuth인증페이지가 뜨는 오류 발생
+#아래와 같이 수정
+CURRENT_PID=$(ps -ef | grep ${PROJECT_NAME} | grep jar | awk '{print $2}')
 
 echo "현재 구동중인 어플리케이션 pid: $CURRENT_PID"
 
